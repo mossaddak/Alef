@@ -122,6 +122,8 @@ $(this).parent().addClass('coloring');
                 <p class="font-mono">Free delivery in Greece</p>
                  <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" version="1.1"   x="0" y="0" viewBox="0 0 24 24" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><path xmlns="http://www.w3.org/2000/svg" d="m6.5 19h-2c-.276 0-.5-.224-.5-.5s.224-.5.5-.5h2c.276 0 .5.224.5.5s-.224.5-.5.5z" fill="#ffffff" data-original="#000000" class=""/><path xmlns="http://www.w3.org/2000/svg" d="m22.75 19h-1.25c-.276 0-.5-.224-.5-.5s.224-.5.5-.5h.835l.674-3.592c-.009-1.838-1.579-3.408-3.509-3.408h-3.283l-1.591 7h2.874c.276 0 .5.224.5.5s-.224.5-.5.5h-3.5c-.152 0-.296-.069-.391-.188-.095-.118-.131-.274-.097-.422l1.818-8c.052-.229.254-.39.488-.39h3.682c2.481 0 4.5 2.019 4.5 4.5l-.759 4.092c-.044.237-.25.408-.491.408z" fill="#ffffff" data-original="#000000" class=""/><path xmlns="http://www.w3.org/2000/svg" d="m19.5 21c-1.378 0-2.5-1.121-2.5-2.5s1.122-2.5 2.5-2.5 2.5 1.121 2.5 2.5-1.122 2.5-2.5 2.5zm0-4c-.827 0-1.5.673-1.5 1.5s.673 1.5 1.5 1.5 1.5-.673 1.5-1.5-.673-1.5-1.5-1.5z" fill="#ffffff" data-original="#000000" class=""/><path xmlns="http://www.w3.org/2000/svg" d="m8.5 21c-1.378 0-2.5-1.121-2.5-2.5s1.122-2.5 2.5-2.5 2.5 1.121 2.5 2.5-1.122 2.5-2.5 2.5zm0-4c-.827 0-1.5.673-1.5 1.5s.673 1.5 1.5 1.5 1.5-.673 1.5-1.5-.673-1.5-1.5-1.5z" fill="#ffffff" data-original="#000000" class=""/><path xmlns="http://www.w3.org/2000/svg" d="m6.5 10h-4c-.276 0-.5-.224-.5-.5s.224-.5.5-.5h4c.276 0 .5.224.5.5s-.224.5-.5.5z" fill="#ffffff" data-original="#000000" class=""/><path xmlns="http://www.w3.org/2000/svg" d="m6.5 13h-5c-.276 0-.5-.224-.5-.5s.224-.5.5-.5h5c.276 0 .5.224.5.5s-.224.5-.5.5z" fill="#ffffff" data-original="#000000" class=""/><path xmlns="http://www.w3.org/2000/svg" d="m6.5 16h-6c-.276 0-.5-.224-.5-.5s.224-.5.5-.5h6c.276 0 .5.224.5.5s-.224.5-.5.5z" fill="#ffffff" data-original="#000000" class=""/><path xmlns="http://www.w3.org/2000/svg" d="m14 19h-3.5c-.276 0-.5-.224-.5-.5s.224-.5.5-.5h3.101l2.272-10h-11.373c-.276 0-.5-.224-.5-.5s.224-.5.5-.5h12c.152 0 .296.069.391.188.095.118.131.274.097.422l-2.5 11c-.052.229-.255.39-.488.39z" fill="#ffffff" data-original="#000000" /></g></svg>
             </div>
+
+
             <!-- <div class="sm:grid sm:grid-cols-3">
                <div class="hidden sm:flex text-yellow-200 font-bold text-sm items-center tracking-wide mx-2 font-mono">Beta Version</div>
                  <div class="flex items-center justify-center text-xs font-bold text-white uppercase py-1 space-x-3">        
@@ -152,10 +154,12 @@ $(this).parent().addClass('coloring');
 <!-- svg icons-->
               <div class="hidden lg:flex justify-end items-center">
 <!-- Basket-->
+
                 <a href="{% url 'carts:cart' %}" class="relative text-black mr-6" aria-label="Cart">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
                 <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
                 </svg>
+                
                 <div class="absolute bottom-5 ml-5">
                     {% if cart_count  %}
                 <div class="inline-flex justify-center  items-center w-5 h-5 p-0.5  rounded-full text-xs font-semibold leading-4 bg-black text-white">
@@ -164,6 +168,8 @@ $(this).parent().addClass('coloring');
                     {% endif %}
                 </div>
                 </a>
+
+                
 <!-- dashboard-logout-login-welcome-->
                 {% if user.id is not None %}
                 <a href="{% url 'accounts:dashboard' %}" class="text-black mr-4">
@@ -251,6 +257,51 @@ $(this).parent().addClass('coloring');
           <a class="mx-7 3xl:mx-10 py-1 font-bold uppercase" href="{% url 'contact' %}">
             Contact
           </a>
+
+
+
+          <style>
+            /* Dropdown Button */
+            .dropdown {
+              position: relative;
+              display: inline-block;
+            }
+        
+            /* Dropdown Content (Hidden by Default) */
+            .dropdown-content {
+              display: none;
+              position: absolute;
+              z-index: 1;
+            }
+        
+            /* Links inside the dropdown */
+            .dropdown-content a {
+              color: black;
+              text-decoration: none;
+              display: block;
+              transition: 0.5s;
+            }
+            .dropdown-content a:hover{
+              background-color: rgb(241, 241, 241);
+              padding: 0px 10px;
+              transition: 0.5s;
+            }
+        
+            /* Show the dropdown menu on hover */
+            .dropdown:hover .dropdown-content {
+              display: block;
+            }
+          </style>
+
+          <!-- Dropdown Button -->
+          <div class="dropdown">
+            <button class="mx-7 3xl:mx-10 py-1 font-bold uppercase">Language</button>
+            <!-- Dropdown Content -->
+            <div class="dropdown-content">
+              <a href="#" class="mx-7 3xl:mx-10 py-1 font-bold uppercase">Eng</a>
+              <a href="#" class="mx-7 3xl:mx-10 py-1 font-bold uppercase">Greek</a>
+            </div>
+          </div>
         </li>
         </ul>
         </nav>
