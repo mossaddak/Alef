@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %} Welcome to | {% endblock%}
+{% block content %}
+{% load static %}
+{% load tailwind_filters %}
+
+
+<section class="min-h-screen w-full flex">
+<div class="w-full lg:w-2/5 p-4 xl:px-32 pt-20">
+ <p class="text-3xl py-4 font-semibold">Sign up</p>
+{% include 'includes/alert.html' %}
+<form method="POST" action="{% url 'accounts:register' %}">
+{% csrf_token %}
+{{ form |crispy}}
+<input type="submit" value="Register" class="w-full mt-3 text-sm font-bold py-3 rounded-md  text-white bg-gray-900  hover:bg-gray-700 transition duration-200">
+</form>
+
+    {{ form.email.errors }}
+    {{ form.non_field_errors }}
+    <p class="mt-4">Have an account? <a href="{% url 'accounts:login' %}" class="underline">Log In</a></p>
+
+<!-- <p>You are already logged in and cannot sign up.<br>Would you like to <a href="{% url 'accounts:logout' %}" class="underline">Log out</a> ?</p> -->
+
+</div>
+
+<div class="hidden lg:block w-3/5">
+<div class=" ">
+<img class="object-cover object-center w-full h-full " src="{% static "img/signup.jpg" %}" alt="">
+</div>
+</div>
+</section>
+
+
+
+
+
+{% endblock %}

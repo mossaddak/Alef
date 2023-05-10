@@ -1,0 +1,333 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Welcome to | {% endblock%}
+{% block content %}
+
+<!-- carousel -->
+<link  rel="stylesheet"  href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+<style>
+
+.swiper {
+width: 100%;
+height: 100%;
+}
+/* @media only screen and (max-width: 809px) {
+.swiper-slide p{
+color:rgb(17, 15, 12);
+/* font-size:28px; 
+}
+}
+*/
+.swiper-slide img {
+display: block;
+width: 100%;
+height: 100%;
+}
+.bullets{
+background-color: #000000;
+}
+
+.swiper-pagination-bullet-active {
+background-color: #000 !important;
+}
+
+</style>
+
+<!-- Header -->
+<section class="h-full">
+  <!-- Slider main container -->
+<div class="relative swiper mySwiper">
+
+<div class="swiper-wrapper">
+  {% for hero in heros  %}
+
+  <div class="swiper-slide">
+    <!-- herotitle  and subtitle position -->
+    {% if hero.herotitle_position == 'right'%}
+      <div class="flex flex-col absolute bottom-14 lg:bottom-20 ml-4 md:right-12 xl:right-32 z-50">
+      <div class="tracking-wide text-left">
+          {% if hero.herotitle_color == 'black' %}
+            <p class="font-bold text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-black">{{ hero.hero_title }} </p>
+            <p class="font-bold text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-black">{{ hero.hero_subtitle }} </p>
+            {% elif hero.herotitle_color == 'white'  %}
+            <p class="font-bold text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white">{{ hero.hero_title }} </p>
+            <p class="font-bold text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-white">{{ hero.hero_subtitle }} </p>
+            {% elif hero.herotitle_color == 'yellow'  %}
+            <p class="font-bold text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-yellow-500">{{ hero.hero_title }} </p>
+            <p class="font-bold text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-yellow-500">{{ hero.hero_subtitle }} </p>
+            {% elif hero.herotitle_color == 'green'  %}
+            <p class="font-bold text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-green-500">{{ hero.hero_title }} </p>
+            <p class="font-bold text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-green-500">{{ hero.hero_subtitle }} </p>
+            {% elif hero.herotitle_color == 'red'  %}
+            <p class="font-bold text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-red-500">{{ hero.hero_title }} </p>
+            <p class="font-bold text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-red-500">{{ hero.hero_subtitle }} </p>
+            {% elif hero.herotitle_color == 'blue'  %}
+            <p class="font-bold text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-blue-500">{{ hero.hero_title }} </p>
+            <p class="font-bold text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-blue-500">{{ hero.hero_subtitle }} </p>
+          {% endif %} 
+      </div>
+    {% elif hero.herotitle_position == 'left'%}
+      <div class="flex flex-col absolute bottom-14 lg:bottom-20  left-4 lg:left-12 xl:left-32 z-50">
+      <div class="tracking-wide text-left">
+      {% if hero.herotitle_color == 'black' %}
+      <p class="font-bold text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-black">{{ hero.hero_title }} </p>
+      <p class="font-bold text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-black">{{ hero.hero_subtitle }} </p>
+      {% elif hero.herotitle_color == 'white'  %}
+      <p class="font-bold text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white">{{ hero.hero_title }} </p>
+      <p class="font-bold text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-white">{{ hero.hero_subtitle }} </p>
+      {% elif hero.herotitle_color == 'yellow'  %}
+      <p class="font-bold text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-yellow-500">{{ hero.hero_title }} </p>
+      <p class="font-bold text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-yellow-500">{{ hero.hero_subtitle }} </p>
+      {% elif hero.herotitle_color == 'green'  %}
+      <p class="font-bold text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-green-500">{{ hero.hero_title }} </p>
+      <p class="font-bold text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-green-500">{{ hero.hero_subtitle }} </p>
+      {% elif hero.herotitle_color == 'red'  %}
+      <p class="font-bold text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-red-500">{{ hero.hero_title }} </p>
+      <p class="font-bold text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-red-500">{{ hero.hero_subtitle }} </p>
+      {% elif hero.herotitle_color == 'blue'  %}
+      <p class="font-bold text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-blue-500">{{ hero.hero_title }} </p>
+      <p class="font-bold text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-blue-500">{{ hero.hero_subtitle }} </p>
+      {% endif %}
+      </div>
+    {% elif hero.herotitle_position == 'center'%}
+      <div class="absolute h-full w-full flex flex-col items-center justify-center z-50">
+      <div class="tracking-wide text-center">
+      {% if hero.herotitle_color == 'black' %}
+      <p class="font-bold text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-black">{{ hero.hero_title }} </p>
+      <p class="font-bold text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-black">{{ hero.hero_subtitle }} </p>
+      {% elif hero.herotitle_color == 'white'  %}
+      <p class="font-bold text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white">{{ hero.hero_title }} </p>
+      <p class="font-bold text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-white">{{ hero.hero_subtitle }} </p>
+      {% elif hero.herotitle_color == 'yellow'  %}
+      <p class="font-bold text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-yellow-500">{{ hero.hero_title }} </p>
+      <p class="font-bold text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-yellow-500">{{ hero.hero_subtitle }} </p>
+      {% elif hero.herotitle_color == 'green'  %}
+      <p class="font-bold text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-green-500">{{ hero.hero_title }} </p>
+      <p class="font-bold text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-green-500">{{ hero.hero_subtitle }} </p>
+      {% elif hero.herotitle_color == 'red'  %}
+      <p class="font-bold text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-red-500">{{ hero.hero_title }} </p>
+      <p class="font-bold text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-red-500">{{ hero.hero_subtitle }} </p>
+      {% elif hero.herotitle_color == 'blue'  %}
+      <p class="font-bold text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-blue-500">{{ hero.hero_title }} </p>
+      <p class="font-bold text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-blue-500">{{ hero.hero_subtitle }} </p>
+      {% endif %}
+      </div>
+    {% endif %}
+
+<!-- if hero_link exists-->
+{% if hero.hero_link_state == 'on' %}
+    {% if hero.hero_link_bgcolor == 'black' %}
+        <div class="font-bold text-sm md:text-lg mt-4 md:mt-6 subpixel-antialiased">
+          <a href="{{ hero.hero_href }}" aria-label="Buy product" class="w-32 px-4 py-2 md:px-4 md:py-2 bg-black hover:bg-gray-800 text-center text-white font-bold capitalize transition duration-200">
+          {{ hero.hero_link }}
+          </a>
+        </div>
+        {% elif hero.hero_link_bgcolor == 'white' %}
+        <div class="font-bold text-sm md:text-lg mt-4 md:mt-6 subpixel-antialiased">
+          <a href="{{ hero.hero_href }}" aria-label="Buy product" class="w-32 px-4 py-2 md:px-4 md:py-2 bg-white hover:bg-gray-100 text-center text-black font-bold capitalize transition duration-200">
+          {{ hero.hero_link }}
+          </a>
+        </div>
+        {% elif hero.hero_link_bgcolor == 'yellow' %}
+        <div class="font-bold text-sm md:text-lg mt-4 md:mt-6 subpixel-antialiased">
+          <a href="{{ hero.hero_href }}" aria-label="Buy product" class="w-32 px-4 py-2 md:px-4 md:py-2 bg-yellow-500 hover:bg-yellow-600 text-center text-black font-bold capitalize transition duration-200">
+          {{ hero.hero_link }}
+          </a>
+        </div>
+        {% elif hero.hero_link_bgcolor == 'green' %}
+        <div class="font-bold text-sm md:text-lg mt-4 md:mt-6 subpixel-antialiased">
+          <a href="{{ hero.hero_href }}" aria-label="Buy product" class="w-32 px-4 py-2 md:px-4 md:py-2 bg-green-500 hover:bg-green-600 text-center text-white font-bold capitalize transition duration-200">
+          {{ hero.hero_link }}
+          </a>
+        </div>
+        {% elif hero.hero_link_bgcolor == 'blue' %}
+        <div class="font-bold text-sm md:text-lg mt-4 md:mt-6 subpixel-antialiased">
+          <a href="{{ hero.hero_href }}" aria-label="Buy product" class="w-32 px-4 py-2 md:px-4 md:py-2 bg-blue-500 hover:bg-blue-600 text-center text-white font-bold capitalize transition duration-200">
+          {{ hero.hero_link }}
+          </a>
+        </div>
+        {% elif hero.hero_link_bgcolor == 'red' %}
+        <div class="font-bold text-sm md:text-lg mt-4 md:mt-6 subpixel-antialiased">
+          <a href="{{ hero.hero_href }}" aria-label="Buy product" class="w-32 px-4 py-2 md:px-4 md:py-2 bg-red-500 hover:bg-red-600 text-center text-white font-bold capitalize transition duration-200">
+          {{ hero.hero_link }}
+          </a>
+        </div>
+    {% endif %}
+    {% elif hero.hero_link_state == 'off' %}
+    <!-- do nothing -->
+    {% endif %}
+  </div>
+
+    {% if hero.hero_position == 'left' %}
+    <img class="object-cover object-left"
+    src='{{ hero.hero_image.url }}' alt="Hero image">
+    </div>
+    {% elif hero.hero_position == 'right' %}
+    <img class="object-cover object-right"
+    src='{{ hero.hero_image.url }}' alt="Hero image">
+    </div>
+    {% else %}
+    <img class="object-cover object-center"
+    src='{{ hero.hero_image.url }}' alt="Hero image">
+    </div>
+    {% endif %}
+  {% endfor %}
+</div>
+<div class="swiper-pagination"></div>
+</div>
+
+</section>
+
+<!-- Category section -->
+<section class="pt-4 xl:pt-5 3xl:pt-6">
+<div class="mx-auto p-4">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 xl:gap-5 3xl:gap-6">
+    {% for category in links  %}
+    <a aria-label="View Item" href="{{ category.get_url }}">
+        <div class="aspect-w-1 aspect-h-1">
+            <img alt="category photo"
+            class="object-center object-cover border border-gray-200"
+            src="{{ category.cat_image.url }}"/>
+            <p class="text-white flex justify-center items-center text-2xl lg:text-4xl uppercase absolute top-0 left-0 right-0 bottom-0 font-bold">
+           {{ category.category_name }}
+            </p>
+        </div>
+    </a>
+    {% endfor %}
+    </div>
+</div>
+</section>
+
+
+<!-- Materials Banner -->
+<section class="pt-4 xl:pt-5 3xl:pt-6">
+  <div class="relative ">
+    <img alt="Banner image" class="h-96 md:h-176 w-full object-cover object-left"
+    src='{% static "img/materials_banner.jpg" %}'/>
+    <div class="absolute flex flex-col  top-1/2 md:top-80 right-auto lg:right-12 text-black text-left px-4 xl:pl-32 z-10">
+     
+      <p class="tracking-wide font-bold text-2xl lg:text-4xl">The new generation of leather</p>
+     
+      <div class="font-bold text-sm md:text-lg mt-4 md:mt-6 subpixel-antialiased">
+      <a href="{% url 'about' %}#link_materials" aria-label="learn more" class="w-32 px-4 py-2 md:px-4 md:py-2 bg-black hover:bg-gray-800 text-center text-white font-bold capitalize transition duration-200">
+      Learn more
+      </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Latest section -->
+<section class="px-4 xl:px-32 pt-16 mt-6 bg-white">
+    <div class="flex flex-col mb-6 lg:justify-center lg:flex-row md:mb-8">
+        <div class="space-y-8">
+            <h1 class="lg:text-3xl text-2xl text-black font-bold text-center tracking-widest uppercase">
+                Our Latest
+            </h1>
+            <!-- <div class="flex justify-center max-w-lg mx-auto text-center py-2 uppercase space-x-12">
+                <button
+                class="text-black hover:border-black py-1 border-b border-transparent transition duration-200 tracking-widest">
+                Latest
+                </button>
+                <button
+                class="text-black hover:border-black py-1 border-b border-transparent transition duration-200 tracking-widest">
+                Trending
+                </button>
+                <button
+                class="text-black hover:border-black py-1 border-b border-transparent transition duration-200 tracking-widest">
+                Discounts
+                </button>
+            </div> -->
+        </div>
+    </div>
+    <div class="grid gap-6 row-gap-5 mb-8 lg:grid-cols-4 sm:row-gap-6 sm:grid-cols-2">
+    {% if products %}
+    {% for product in products %}
+    <a href="{{ product.get_url }}" aria-label="View Item">
+        <div class="relative overflow-hidden transition duration-200 hover:shadow-xl">
+            <img class="aspect-w-1 border border-gray-200" src="{{ product.images.url }}" alt="product photo"/>
+            <div class="absolute inset-0 px-6 py-4 transition-opacity duration-200 bg-black bg-opacity-100 opacity-0 hover:opacity-100">
+                <p class="mb-2 text-md xl:text-lg font-bold text-gray-100 ">{{ product.product_name|capfirst }}</p>
+                <p class="mb-2 text-xs xl:text-sm font-bold tracking-wide text-white">
+                    {{ product.short_desc|capfirst }}</p>
+
+                    {% if product.discount_percentage %}
+                    <p class="text-sm  font-bold tracking-wide text-red-500">€ {{ product.get_sale }}<span class="line-through mx-2 text-white ">€ {{ product.price }}</span></p>
+                    {% else %}
+                    <p class="text-sm  font-bold tracking-wide text-white">€ {{ product.price }}</p>
+                    {% endif %}
+
+            </div>
+        </div>
+    </a>
+    {% endfor %}
+    {% endif %}
+    </div>
+    <div class="text-center mt-20">
+        <a href="{% url 'store:product_list' %}" aria-label="" class="px-4 py-3  bg-black hover:bg-gray-800 border text-center text-white font-semibold capitalize transition duration-200">
+        View gallery
+        </a>
+    </div>
+</section>
+
+
+
+<!-- Banner section -->
+<section class="px-4 xl:px-32 py-16">
+  <div class="relative border border-gray-300">
+    <img alt="Banner image" class="h-96 sm:h-112 w-full object-right object-cover"
+         src='{% static "img/abouthero.jpg" %}'/>
+    <div class="absolute inset-0 w-full py-2.5  text-white text-xs flex justify-center items-center">
+      <p class="text-white flex justify-center items-center text-2xl lg:text-3xl xl:text-4xl uppercase absolute top-0 left-0 right-0 bottom-0 font-bold">
+          <a href="{% url 'contact' %}" aria-label="" class="text-center border-2 border-gray-100 p-4 md:p-10">
+        Visit our new store
+        </a>
+      </p>
+    </div>
+  </div>
+</section>  
+
+
+
+<!-- Anima Banner -->
+<!-- <section class="pt-16">
+  <div class="relative">
+    <img alt="Banner image" class="h-96 md:h-176 w-full object-cover object-center"
+    src='{% static "img/anima_web.jpg" %}'/>
+    <div class="absolute flex flex-col  top-1/3 md:top-88 left-0  text-left px-4 xl:ml-32 z-10 filter drop-shadow-lg pt-4">
+      <a aria-label="Anima logo" class="pb-2" href="https://www.wild-anima.gr/" title="Wild Anima">
+      <img class="object-contain object-center w-40 lg:w-48" src='{% static "img/anima-logo.png" %}' alt="Anima logo">
+      </a>
+      <p class="tracking-wide font-bold text-2xl lg:text-4xl text-white pt-1">Our donation to Anima<br>For Life And Freedom </p>
+     
+      <div class="font-bold text-sm md:text-lg mt-8 subpixel-antialiased">
+      <a href="{% url 'about' %}#link_anima" aria-label="Buy product" class="w-32 px-4 py-2 md:px-4 md:py-2 bg-green-800 hover:bg-green-700 text-center text-white font-bold capitalize transition duration-200 ">
+      Learn more
+      </a>
+      </div>
+    </div>
+  </div>
+</section>   -->
+
+
+ <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        spaceBetween: 0,
+        centeredSlides: true,
+        autoplay: {
+          delay: 12000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          type: 'bullets',
+          clickable: true,
+        },
+
+      });
+
+    </script>
+{% endblock %}
