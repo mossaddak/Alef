@@ -26,8 +26,6 @@ urlpatterns = [
     #orders
     path('orders/', include('orders.urls', namespace='orders')),
 
-    #language
-    path('lang/', include('lang.urls')),
 
 
 ]

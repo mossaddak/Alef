@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'orders', #new
     'admin_honeypot', #new
     'storages', #new
-
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
@@ -50,6 +49,9 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',  # new
     'django.contrib.sessions.middleware.SessionMiddleware',
+
+    'django.middleware.locale.LocaleMiddleware', # new
+    
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -246,3 +248,13 @@ DATABASES['default'].update(db_from_env)
 
 # DEBUG_PROPAGATE_EXCEPTIONS = True
 # COMPRESS_ENABLED = os.environ.get('COMPRESS_ENABLED', False)
+
+
+
+#languages____________________________________________________
+# from django.utils.translation import gettext_lazy as _
+# LANGUAGE_CODE = 'en'
+
+
+
+
