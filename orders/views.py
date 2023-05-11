@@ -17,11 +17,13 @@ from carts.views import(
 
 
 def payments(request):
-    order = Order.objects.get(order_number="2023051091")
+
+    last_order = request.session.get('last_order')
+    
     if request.user.is_authenticated:
-        # body = json.loads(request.body)
-        # order = Order.objects.get(user=request.user, is_ordered=False, order_number=body['orderID'])
-        # print(order)
+        body = json.loads(request.body)
+        order = Order.objects.get(user=request.user, is_ordered=False, order_number=body['orderID'])
+        print(order)
 
         # Store transaction details inside Payment model
         payment = Payment(
@@ -37,6 +39,10 @@ def payments(request):
         )
     
     else:
+
+        
+        order = Order.objects.get(id=last_order.get('last_order_id', None))
+
         payment = Payment(
             payment_id = "hghhgj&",
             payment_method = "paypal",
@@ -117,8 +123,8 @@ def payments(request):
         to_email = request.user.email
 
     else:
-        to_email = request.session.get('guest_mail', None)
-    print("NewGuestMail=========================================================================",request.session.get('guest_mail', None))
+        to_email = last_order.get('guest_mail', None)
+    print("NewGuestMail=========================================================================",to_email)
     
     send_email = EmailMessage(mail_subject, message, to=[to_email])
     send_email.send()
@@ -180,9 +186,9 @@ def place_order(request, total=0, quantity=0):
             data.phone = form.cleaned_data['phone']
             data.email = form.cleaned_data['email']
 
-            request.session['guest_mail'] = form.cleaned_data['email']
+            
 
-            print("Order mail========================================================>", form.cleaned_data['email'])
+            
 
             data.address = form.cleaned_data['address']
             data.municipality = form.cleaned_data['municipality']
@@ -214,6 +220,11 @@ def place_order(request, total=0, quantity=0):
 
 
             data.save()
+            last_order = Order.objects.last()
+            print("last order number============================================================>", last_order.pk)
+            request.session['last_order'] = {'last_order_id':last_order.pk,'guest_mail':form.cleaned_data['email']}
+            #request.session['guest_mail'] = form.cleaned_data['email']
+            print("Order mail========================================================>", form.cleaned_data['email'])
 
 
             # Generate order number

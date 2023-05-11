@@ -198,13 +198,13 @@ MESSAGE_TAGS = {
 # EMAIL_HOST_PASSWORD=config('EMAIL_HOST_PASSWORD')
 # EMAIL_USE_TLS=config('EMAIL_USE_TLS',cast=bool)
 
-#smtp configuration
+#smtp configuration 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'#oke
 EMAIL_HOST = 'smtp.gmail.com'#oke
 
 EMAIL_PORT = '587'#oke
-EMAIL_HOST_USER = ''#leave here your genuine email alefatelierbeta@gmail.com
-EMAIL_HOST_PASSWORD = 'gzozkfosjaftnjqz'#leave here your genuine password of your email. keep it in mind, as the password should in encrypted condition 
+EMAIL_HOST_USER = 'my mail'#leave here your genuine email alefatelierbeta@gmail.com
+EMAIL_HOST_PASSWORD = 'siwvwzhmtaljexgt'# 'gzozkfosjaftnjqz' leave here your genuine password of your email. keep it in mind, as the password should in encrypted condition 
 EMAIL_USE_TLS = True#oke
 
 
